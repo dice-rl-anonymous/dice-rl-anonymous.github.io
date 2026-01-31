@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Original video files (converted to mp4)
+*.mov
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Thumbnails
+*.png.bak
+
+# PDF files (if using SVG versions)
+# *.pdf
+
+rl_finetuning/
