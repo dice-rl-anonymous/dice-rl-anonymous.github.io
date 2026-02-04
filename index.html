@@ -255,11 +255,21 @@
       <img alt="real robot results" src="media/RL-realword.svg" style="width: 100%; max-width: 100%;">
     </div>
 
-    <div class="has-text-centered" style="margin: 20px 0;">
-      <video controls autoplay loop muted style="width: 100%; max-width: 100%;">
-        <source src="media/ours_cropped_10x.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2%;">
+      <div style="width: 48%; text-align: center;">
+        <video controls autoplay loop muted style="width: 100%;">
+          <source src="media/baseline_cropped_10x_counter.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Pretrained BC Policy</p>
+      </div>
+      <div style="width: 48%; text-align: center;">
+        <video controls autoplay loop muted style="width: 100%;">
+          <source src="media/ours_cropped_10x_counter.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Finetuned RL Policy</p>
+      </div>
     </div>
 
   </div>
