@@ -121,6 +121,42 @@
   </div>
 </section>
 
+<!-- Section 2: Real Robot Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered section-title">Real Robot Results</h2>
+
+    <div class="content has-text-justified">
+      <p>
+        We evaluate DICE-RL on a challenging real-world Belt Assembly task from the NIST benchmark. The BC policy pretrained with 265 demos has three dominant failure modes. After 420 online episodes, DICE-RL reliably succeeds on this contact-rich task. 
+        We overlay a representative rollout with running change in action entropy (\(\Delta H\)) and value improvement (\(\Delta V\)), with the largest entropy drop and value gains occurring around critical contact transitions. 
+      </p>
+    </div>
+
+    <div class="has-text-centered" style="margin: 20px 0;">
+      <img alt="real robot results" src="media/RL-realword.svg" style="width: 100%; max-width: 100%;">
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2%;">
+      <div style="width: 48%; text-align: center;">
+        <video controls autoplay loop muted style="width: 100%;">
+          <source src="media/baseline_cropped_10x_counter.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Pretrained BC Policy (x10)</p>
+      </div>
+      <div style="width: 48%; text-align: center;">
+        <video controls autoplay loop muted style="width: 100%;">
+          <source src="media/ours_cropped_10x_counter.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Finetuned RL Policy (x10)</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- Section 1: Simulation Results & Analyses -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -235,42 +271,6 @@
 
     <!-- Subsection: What makes a pretrained policy easy to finetune? -->
     <!-- <h3 class="title is-4 has-text-centered subsection-title">What makes a pretrained policy easy to finetune?</h3> -->
-
-  </div>
-</section>
-
-<!-- Section 2: Real Robot Results -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered section-title">Real Robot Results</h2>
-
-    <div class="content has-text-justified">
-      <p>
-        We evaluate DICE-RL on a challenging real-world Belt Assembly task from the NIST benchmark. The BC policy pretrained with 265 demos has three dominant failure modes. After 420 online episodes, DICE-RL reliably succeeds on this contact-rich task. 
-        We overlay a representative rollout with running change in action entropy (\(\Delta H\)) and value improvement (\(\Delta V\)), with the largest entropy drop and value gains occurring around critical contact transitions. 
-      </p>
-    </div>
-
-    <div class="has-text-centered" style="margin: 20px 0;">
-      <img alt="real robot results" src="media/RL-realword.svg" style="width: 100%; max-width: 100%;">
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2%;">
-      <div style="width: 48%; text-align: center;">
-        <video controls autoplay loop muted style="width: 100%;">
-          <source src="media/baseline_cropped_10x_counter.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Pretrained BC Policy</p>
-      </div>
-      <div style="width: 48%; text-align: center;">
-        <video controls autoplay loop muted style="width: 100%;">
-          <source src="media/ours_cropped_10x_counter.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Finetuned RL Policy</p>
-      </div>
-    </div>
 
   </div>
 </section>
