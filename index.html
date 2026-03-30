@@ -63,6 +63,172 @@
 </head>
 
 <body>
+
+<!-- ======================= REBUTTAL SECTION ======================= -->
+<section class="section" style="padding-bottom: 0;">
+  <div class="container is-max-desktop">
+    <div style="background: linear-gradient(135deg, #5B4BA8, #7B6BC8); border-radius: 12px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 20px rgba(91,75,168,0.3);">
+      <h2 class="title is-2 has-text-centered" style="color: #fff; margin-bottom: 0; letter-spacing: 2px;">
+        &#x1F4AC; Rebuttal Materials
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Rebuttal content -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Rebuttal Table of Contents -->
+    <div style="margin-bottom: 40px;">
+      <ol class="is-size-5">
+        <li><a href="#rebuttal-resfit">Detailed comparison between DICE-RL and ResFiT</a> <span class="is-size-6">(Reviewer b6jW, t2wZ, N9LR)</span></li>
+        <li><a href="#rebuttal-libero10">DICE-RL on Libero10</a> <span class="is-size-6">(Reviewer b6jW, t2wZ)</span></li>
+        <li><a href="#rebuttal-libero10-vla">DICE-RL on Libero10 with VLA</a> <span class="is-size-6">(Reviewer b6jW, 24a2, t2wZ, N9LR)</span></li>
+        <li><a href="#rebuttal-pretraining-data">DSRL with varying amounts of pretraining data</a> <span class="is-size-6">(Reviewer t2wZ)</span></li>
+        <li><a href="#rebuttal-bok">Updated results on BoK action sampling</a> <span class="is-size-6">(Reviewer t2wZ)</span></li>
+        <li><a href="#rebuttal-rlpd">DICE-RL with various RLPD schedule</a> <span class="is-size-6">(Reviewer t2wZ)</span></li>
+        <li><a href="#rebuttal-real-world">Reward labeling for real world tasks</a> <span class="is-size-6">(Reviewer 24a2)</span></li>
+        <li><a href="#rebuttal-real-world">Wall-clock time cost</a> <span class="is-size-6">(Reviewer 24a2)</span></li>
+      </ol>
+    </div>
+
+    <!-- 1. Detailed comparison between DICE-RL and ResFiT -->
+    <div id="rebuttal-resfit" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">1. Detailed comparison between DICE-RL and ResFiT <span class="is-size-6">(Reviewer b6jW, t2wZ, N9LR)</span></h3>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="ablation ours vs resfit breakdown" src="media/ablation_ours_vs_resfit_breakdown.svg" style="width: 70%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          Caption: We compare <strong>DICE-RL</strong> against three variants: <strong>DICE-RL without the BC loss</strong>, <strong>DICE-RL without chunked RL</strong>, and <strong>ResFiT</strong>. DICE-RL outperforms both <strong>DICE-RL without the BC loss</strong> and <strong>DICE-RL without chunked RL</strong>, and both of these variants in turn outperform <strong>ResFiT</strong>. These results support the two core design differences between DICE-RL and ResFiT: (i) DICE-RL couples chunked residual action learning with chunked value learning, whereas ResFiT uses a per-step residual actor with a per-step critic; and (ii) DICE-RL includes an explicit BC regularization term that keeps fine-tuning close to the pretrained prior.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. DICE-RL on Libero10 -->
+    <div id="rebuttal-libero10" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">2. DICE-RL on Libero10 <span class="is-size-6">(Reviewer b6jW, t2wZ)</span></h3>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="ablation libero average" src="media/ablation_libero_avg.svg" style="width: 70%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: Average success rate across the 10 tasks in LIBERO-10, using approximately <strong>3,000</strong> online episodes in total across all tasks. <strong>Pretrained policy is a flow matching policy trained on the full Libero-10 dataset.</strong></p>
+      </div>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="ablation libero per task" src="media/ablation_libero_per_task.svg" style="width: 100%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: Average success rate for each task. <strong>Pretrained policy is a flow matching policy trained on the full Libero-10 dataset.</strong></p>
+      </div>
+    </div>
+
+    <!-- 3. DICE-RL on Libero10 with VLA -->
+    <div id="rebuttal-libero10-vla" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">3. DICE-RL on Libero10 with VLA (&pi;<sub>0</sub>) <span class="is-size-6">(Reviewer b6jW, 24a2, t2wZ, N9LR)</span></h3>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="ablation libero vla average" src="media/ablation_libero_vla_avg.svg" style="width: 70%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: Average success rate across the 10 tasks in LIBERO-10, using approximately <strong>3,000</strong> online episodes in total across all tasks. <strong>The pretrained policy is &pi;<sub>0</sub> finetuned on a subset of the LIBERO-10 dataset using 30 demonstrations per task.</strong></p>
+      </div>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="ablation libero vla per task" src="media/ablation_libero_vla_per_task.svg" style="width: 100%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: Average success rate for each task. <strong>The pretrained policy is &pi;<sub>0</sub> finetuned on a subset of the LIBERO-10 dataset using 30 demonstrations per task.</strong></p>
+      </div>
+    </div>
+
+    <!-- 4. DSRL with varying amounts of pretraining data -->
+    <div id="rebuttal-pretraining-data" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">4. DSRL with varying amounts of pretraining data <span class="is-size-6">(Reviewer t2wZ)</span></h3>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="analysis num demo dsrl" src="media/analysis_num_demo_dsrl.svg" style="width: 70%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: DSRL finetuning with varying number of demonstrations used for BC policy pretraining.</p>
+      </div>
+    </div>
+
+    <!-- 5. Updated results on BoK action sampling -->
+    <div id="rebuttal-bok" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">5. Updated results on BoK action sampling <span class="is-size-6">(Reviewer t2wZ)</span></h3>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="best of k bar plot" src="media/best_of_k_bar_plot.svg" style="width: 70%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: We evaluate DICE-RL with K = 4, 16, 32, 64, where K is the number of action samples used in Best-of-K action selection. On Tool Hang, K = 16 achieves the best performance. Increasing K further to 64 leads to a slight drop in performance, likely due to critic overestimation.</p>
+      </div>
+    </div>
+
+    <!-- 6. DICE-RL with various RLPD schedule -->
+    <div id="rebuttal-rlpd" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">6. DICE-RL with various RLPD schedule <span class="is-size-6">(Reviewer t2wZ)</span></h3>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <img alt="ablation rlpd schedule" src="media/ablation_rlpd_schedule.svg" style="width: 70%; max-width: 100%;">
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: DICE-RL finetuning with varying RLPD schedule. DICE-RL is not particularly sensitive to ratio of offline data.</p>
+      </div>
+    </div>
+
+    <!-- 7. DICE-RL on more real world tasks -->
+    <div id="rebuttal-real-world" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">7. Reward labeling for real world tasks <span class="is-size-6">(Reviewer 24a2)</span></h3>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2%;">
+        <div style="width: 48%; text-align: center;">
+          <iframe src="https://drive.google.com/file/d/1JNZ46hQEjkWclx_jCPsbDmy3DAJaJknU/preview" width="100%" height="350" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+          <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Pretrained BC Policy (x10) 56.67%</p>
+        </div>
+        <div style="width: 48%; text-align: center;">
+          <iframe src="https://drive.google.com/file/d/1WyrYnS9F-ikGsCHhxNU0oVA0BLYJVDaJ/preview" width="100%" height="350" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+          <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Finetuned RL Policy (x10) 90%</p>
+        </div>
+      </div>
+      <div class="content has-text-justified" style="margin-top: 20px;">
+        <p>Caption: Example task with <strong>automatic reward labeling</strong>. We use OpenCV-based color thresholding to detect whether the light bulb is lit, and assign a binary reward of 0 or 1 accordingly. Part of the video is blurred to preserve anonymity.</p>
+      </div>
+    </div>
+
+    <!-- 8. Wall-clock time cost -->
+    <div id="rebuttal-real-world" style="margin-bottom: 50px;">
+      <h3 class="title is-3 has-text-centered subsection-title">8. Wall-clock time cost <span class="is-size-6">(Reviewer 24a2)</span></h3>
+
+      <h4 class="title is-5 has-text-centered subsubsection-title">Timelapse of the gear insertion task (10× speed)</h4>
+      <div class="has-text-centered" style="margin: 20px 0;">
+        <iframe src="https://drive.google.com/file/d/1dIc0qdOmPsQrcexm2H7FqrXCWDILEi00/preview" width="70%" height="500" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="content has-text-justified">
+        <p>Caption: Timelapse of the gear insertion task (10× speed). The wall-clock time required to improve performance from <strong>46.67% to 90% is 1.5 hours</strong>. For the light bulb insertion and gear assembly tasks, the corresponding wall-clock times are approximately <strong>3 hours</strong> and <strong>6 hours</strong>, respectively.</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2%; margin-top: 30px;">
+        <div style="width: 48%; text-align: center;">
+          <iframe src="https://drive.google.com/file/d/1dG0wmIy35UCnF0Sj1BBWnCtjGcUKtb6j/preview" width="100%" height="350" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+          <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Pretrained BC Policy (x10) 46.67%</p>
+        </div>
+        <div style="width: 48%; text-align: center;">
+          <iframe src="https://drive.google.com/file/d/1R2sFRxWoAqoLRjG0jXVnonDKNa-rMc8x/preview" width="100%" height="350" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+          <p class="is-size-6" style="margin-top: 10px; font-weight: bold;">Finetuned RL Policy (x10) 90%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ORIGINAL SUBMISSION ======================= -->
+<section class="section" style="padding-bottom: 0;">
+  <div class="container is-max-desktop">
+    <hr style="border: none; height: 4px; background: linear-gradient(to right, #A7CEE2, #5B4BA8, #A7CEE2); margin: 0 0 30px 0; border-radius: 2px;">
+    <div style="background: linear-gradient(135deg, #A7CEE2, #7BBAD8); border-radius: 12px; padding: 30px 20px; text-align: center; box-shadow: 0 4px 20px rgba(167,206,226,0.4);">
+      <h2 class="title is-2 has-text-centered" style="color: #fff; margin-bottom: 0; letter-spacing: 2px;">
+        &#x1F4C4; Original Submission
+      </h2>
+    </div>
+  </div>
+</section>
+
 <section class="hero">
   <div class="hero-body" style="padding-bottom: 0;">
     <div class="container is-max-desktop">
